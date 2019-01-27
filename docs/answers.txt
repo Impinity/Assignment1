@@ -1,0 +1,58 @@
+(a)
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (7/7), 968 bytes | 484.00 KiB/s, done.
+Total 7 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To github.com:Impinity/Assignment1.git
+   3d373c9..af74692  master -> master
+
+(b)
+There are 5 commits, the command used was: git log.
+
+(c)
+It was modified on Thu Jan 10 16:45:38 2019
+Command used was: git log --follow .gitignore
+
+(d)
+Branching give the ability to make sure changes in code are verified before
+being delivered to other developers. Branching helps isolate different
+development activities like having a branch for bug fixing and one for
+features which helps developers work on the same thing in an organized fashion.
+
+(e)
+git log gives you a history of commits while git status gives you the
+working tree status.
+
+(f)
+git log --follow Weapon.h
+
+(g)
+git log --grep="file"
+
+(h)
+    (I). Inheritance is when an object is derived from another object. That object
+    essentially "inherits" the functionality of its parent class.
+    (II). Polymorphism, in object-oriented programming usually refers to derived
+    objects being able to have functionality inherited from the parent object but
+    also being able to define their own unique behavior. This can be due to
+    overriding parent functions or simply adding their own behavior.
+    (III). Encapsulation is keeping data or code safe from external interference.
+    In C++ a class has multiple ways to control encapsulation. Making data and functions
+    public gives anyone the ability to access them. Making data protected allows only
+    the base class and derived classes to access that data. Making data private only
+    allows that class to access that data.
+
+(i)
+The main difference is that in the "Dictator and Lieutenants" workflow is that
+developers are pushing to an intermediary "lieutenant" rather than directly to
+a "dictator" or "integration manager." The work of an integration manager is
+basically split up and developers have one repository rather than two.
+
+(j)
+The "Dictator and Lieutenants" workflow is significantly more efficient and
+organized. At that scale, it's nearly impossible for a developer to resolve
+conflicts with 99 other developers. The "Dictator and Lieutenants" method instead
+has multiple Lieutenant repositories with a few developers assigned to each one
+so not one lieutenant is responsible for resolving conflicts between 100 people.
