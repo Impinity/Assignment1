@@ -57,7 +57,7 @@ public:
      * Returns the damage of the weapon in abscense of armor
      * @return Damage equals to the hitpoints of the weapon
      */
-    double hit();
+    virtual double hit();
 };
 
 

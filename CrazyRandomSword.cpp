@@ -4,12 +4,17 @@
 
 #include "CrazyRandomSword.h"
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 double CrazyRandomSword::hit(double armor) {
     double ignored;
     double damage;
     // Seed for randomness
     srand(time(NULL));
+
+    // Randomize hitPoints on each hit
+    hitPoints = (rand() % 94) + 7;
 
     // Can't use a range between 2 and 1/3 armor if 1/3 armor is too small
     if (((int)armor/3) < 3)
@@ -23,4 +28,14 @@ double CrazyRandomSword::hit(double armor) {
         return 0;
     }
     return damage;
+}
+
+double CrazyRandomSword::hit() {
+    // Seed for randomness
+    srand(time(NULL));
+
+    // Randomize hitPoints on each hit
+    hitPoints = (rand() % 94) + 7;
+
+    return hitPoints;
 }
