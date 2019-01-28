@@ -6,15 +6,19 @@
 #include <iostream>
 
 double CrazyRandomSword::hit(double armor) {
+    double ignored;
+    double damage;
     // Seed for randomness
     srand(time(NULL));
 
-    std::cout << (rand() % 25) + 2;
+    // Can't use a range between 2 and 1/3 armor if 1/3 armor is too small
+    if (((int)armor/3) < 3)
+        ignored = 0;
     // Ignores a random number from 2 to 1/3 of armor
-    double ignored = ((rand() % ((int)armor / 3) - 1) + 2);
-    double damage = hitPoints - (armor - ignored);
-    std::cout << "Sword hitPoints " << hitPoints << std::endl;
-    std::cout << "Sword ignored " << ignored << std::endl;
+    else
+        ignored = ((rand() % ((int)armor / 3) - 1) + 2);
+    damage = hitPoints - (armor - ignored);
+
     if (damage < 0) {
         return 0;
     }
