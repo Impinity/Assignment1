@@ -5,8 +5,8 @@
 #include <string>
 #include "Weapon.h"
 
-#ifndef ASSIGNMENT1_CLIMBAXE_H
-#define ASSIGNMENT1_CLIMBAXE_H
+#ifndef CLIMBAXE_H
+#define CLIMBAXE_H
 
 /**
  * Defines the behavior of a climb axe ( hitpoints : start at 10 but increase by 10 each time the
@@ -16,17 +16,21 @@
 
 
 class ClimbAxe : public Weapon {
+
 public:
 
     ClimbAxe() : Weapon("Climb Axe", 10.0){ // 10.0 is the starting hitpoints
+        armorIgnored = 20.0;
     }
 
     virtual ~ClimbAxe() {};
 
     virtual double hit(double armor);
 
-    virtual double hit();   //Hides hit() function from Weapon.h to implement random hitPoints on hit even when armor is 0
+    virtual double hit();
 
+private:
+    double armorIgnored;
 };
 
-#endif //ASSIGNMENT1_CLIMBAXE_H
+#endif //CLIMBAXE_H
