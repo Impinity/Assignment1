@@ -25,6 +25,12 @@ void simulateWeapon(Weapon * weapon, double armor) {
     cout << weapon->getName() << " inflicts " << weapon->hit(40) << " when armor is " << 40 << std::endl << std::endl;
 }
 
+void simulateClimbAxe(Weapon * weapon) {
+    for (int i = 0;i  < 50; i+=5) {
+        cout << weapon->getName() << " inflicts " << weapon->hit() << " when armor is " << i << std::endl;
+    }
+}
+
 /*
  * 
  */
@@ -50,6 +56,11 @@ int main(int argc, char** argv) {
     //Crazy random sword
     weapon = WeaponFactory::getInstance()->getWeapon("crazy sword");
     simulateWeapon(weapon, armor);
+    delete(weapon);
+
+    //Climb axe
+    weapon = WeaponFactory::getInstance()->getWeapon("climb axe");
+    simulateClimbAxe(weapon);
     delete(weapon);
 
     return 0;
