@@ -26,7 +26,6 @@ Weapon * WeaponFactory::getWeapon(std::string name) {
     if (name.compare("sword") == 0) {
         return new CommonSword();
     }
-    
     if (name.compare("spear") == 0) {
         return new CommonSpear();
     }
