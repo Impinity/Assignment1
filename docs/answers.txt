@@ -56,3 +56,35 @@ organized. At that scale, it's nearly impossible for a developer to resolve
 conflicts with 99 other developers. The "Dictator and Lieutenants" method instead
 has multiple Lieutenant repositories with a few developers assigned to each one
 so not one lieutenant is responsible for resolving conflicts between 100 people.
+
+5.
+Is the RoleGame prototype using polymorphism and/or encapsulation? If you find that the
+prototype is using any of these two OOP principles, please discuss in which way the
+prototype is using it.
+
+The RoleGame prototype is using both polymorphism and encapsulation.
+
+The polymorphism is seen in the Weapon class's hit() function, specifically,
+the hit() function with a parameter. When hit(double armor) is called, a
+different function is called each time depending on the type of weapon.
+The hit() function without a parameter used to not be a virtual function
+therefore, when called only one hit() function would be called (the one
+for the base Weapon class). In order to implement the randomness on each
+hit (even if the armor is non-existent) for the CrazyRandomSword class
+I made the parameterless hit() function virtual. The version with
+a parameter is followed by an "= 0" making it a pure virtual function.
+This means that the base Weapon class doesn't have its on implementation
+of that version of hit() and it is implemented differently in every sub-
+class, making Weapon an abstract class. My parameterless hit function
+is not a pure virtual function meaning changing that function is optional
+so only CrazyRandomSword and ClimbAxe have to implement it. The destructor
+of the base Weapon class is also a non-pure virtual function because not
+every subclass needs to clean up any pointers or garbage.
+
+The encapsulation can also be seen in the base Weapon class in its use of
+'public:' and 'protected:'. The constructor and functions are public,
+meaning the anything can access them, while the member data is protected,
+meaning only the subclasses (CommonSpear, SimpleHammer, etc.) can access.
+My ClimbAxe has a private member variable (armorIgnored) in order to
+decrease it over time. This means only ClimbAxe can access that data.
+Encapsulation is implemented via these access specifiers.
